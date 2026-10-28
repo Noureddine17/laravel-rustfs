@@ -1,0 +1,45 @@
+services:
+  rustfs:
+    image: rustfs/rustfs:latest
+    container_name: rustfs
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - RUSTFS_ACCESS_KEY_ID=3M95VLgPdEHeuXN4ilDQ
+      - RUSTFS_SECRET_ACCESS_KEY=zBlTwOfvyYJU8gMSRK5H19FQ6cuE0LhIqoV4ZijN
+    volumes:
+      - ./data:/data
+    networks:
+      - app-network  # Utiliser le même réseau
+
+  laravel:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: laravel
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www
+    depends_on:
+      - rustfs
+    networks:
+      - app-network  # Utiliser le même réseau
+
+  node:
+    build:
+      context: .
+      dockerfile: docker/node/Dockerfile
+    container_name: node
+    volumes:
+      - .:/var/www
+      - /var/www/node_modules
+    ports:
+      - "5173:5173"
+    networks:
+      - app-network  # Utiliser le même réseau
+
+networks:
+  app-network:
+    driver: bridge  # Assurez-vous que les services utilisent ce réseau

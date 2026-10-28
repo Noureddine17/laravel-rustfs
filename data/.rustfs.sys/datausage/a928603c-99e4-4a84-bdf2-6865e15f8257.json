@@ -1,0 +1,36 @@
+{
+  "format_version": 1,
+  "meta": {
+    "disk_id": "a928603c-99e4-4a84-bdf2-6865e15f8257",
+    "pool_index": 0,
+    "set_index": 0,
+    "disk_index": 0
+  },
+  "last_update": {
+    "secs_since_epoch": 1767956825,
+    "nanos_since_epoch": 522432213
+  },
+  "buckets_usage": {
+    "test": {
+      "size": 12765747,
+      "replication_pending_size_v1": 0,
+      "replication_failed_size_v1": 0,
+      "replicated_size_v1": 0,
+      "replication_pending_count_v1": 0,
+      "replication_failed_count_v1": 0,
+      "objects_count": 5,
+      "object_size_histogram": {},
+      "object_versions_histogram": {},
+      "versions_count": 5,
+      "delete_markers_count": 0,
+      "replica_size": 0,
+      "replica_count": 0,
+      "replication_info": {}
+    }
+  },
+  "buckets_count": 1,
+  "objects_total_count": 5,
+  "versions_total_count": 5,
+  "delete_markers_total_count": 0,
+  "objects_total_size": 12765747
+}
